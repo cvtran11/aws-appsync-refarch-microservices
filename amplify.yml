@@ -16,7 +16,6 @@ backend:
         - echo "# Print domain name"
         - echo $GRAPHQL_ENDPOINT
         - echo "# Back to root folder"
-        - cd ..
         - echo "# Pass order API endpoint to Store app"
         - jq '.OrderServiceEndpoint = $newVal' --arg newVal $GRAPHQL_ENDPOINT ./amplify/backend/api/StoreApi/parameters.json > ./amplify/backend/api/StoreApi/parameters_tmp.json && mv ./amplify/backend/api/StoreApi/parameters_tmp.json ./amplify/backend/api/StoreApi/parameters.json
         - amplifyPush --simple
