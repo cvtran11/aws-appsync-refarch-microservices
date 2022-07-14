@@ -8,8 +8,7 @@ backend:
         - echo "# install jq"
         - yum install jq -y
         - echo "# cd orderapi"
-        - cd orderapi
-        - ./deploy_OrderApi.sh
+        - orderapi/deploy_OrderApi.sh
         - echo "# Get Order API Endpoint"
         - export GRAPHQL_ENDPOINT=$(jq -r '.api[(.api | keys)[0]].output.GraphQLAPIEndpointOutput' ./amplify/#current-cloud-backend/amplify-meta.json)
         - echo "# Get domain name from endpoint"
